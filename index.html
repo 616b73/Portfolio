@@ -4,707 +4,20 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ashish@portfolio:~$</title>
+    <title>Ashish Kumar Singh | Backend Engineer — ashish@portfolio:~$</title>
+    <meta name="description" content="Ashish Kumar Singh, Software Development Engineer at Bharat Electronics Limited. Java, Spring Boot, Kafka, Redis, AWS and Kubernetes. Experience, projects and contact.">
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Fraunces:ital,wght@0,300;1,300&display=swap"
         rel="stylesheet">
-    <style>
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --bg: #0f1117;
-            --panel: #151720;
-            --border: #1e2130;
-            --text: #cdd6f4;
-            --dim: #6c7086;
-            --green: #a6e3a1;
-            --blue: #89b4fa;
-            --yellow: #f9e2af;
-            --red: #f38ba8;
-            --teal: #94e2d5;
-            --mauve: #cba6f7;
-            --peach: #fab387;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 2px,
-                    rgba(0, 0, 0, 0.07) 2px, rgba(0, 0, 0, 0.07) 4px);
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .window {
-            max-width: 920px;
-            margin: 40px auto;
-            padding: 0 20px 60px;
-        }
-
-        .titlebar {
-            background: #1e2130;
-            border-radius: 10px 10px 0 0;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .dots {
-            display: flex;
-            gap: 7px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .dot-r {
-            background: #ff5f57;
-        }
-
-        .dot-y {
-            background: #ffbd2e;
-        }
-
-        .dot-g {
-            background: #28c840;
-        }
-
-        .title-text {
-            flex: 1;
-            text-align: center;
-            color: var(--dim);
-            font-size: 12px;
-        }
-
-        .tabs {
-            display: flex;
-            background: #151720;
-            border-bottom: 1px solid var(--border);
-            overflow-x: auto;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            font-size: 12px;
-            color: var(--dim);
-            cursor: pointer;
-            border-right: 1px solid var(--border);
-            transition: all 0.15s;
-            white-space: nowrap;
-            background: transparent;
-            border-top: none;
-            border-left: none;
-            border-bottom: 2px solid transparent;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .tab:hover {
-            color: var(--text);
-            background: #1a1d2e;
-        }
-
-        .tab.active {
-            color: var(--green);
-            background: var(--bg);
-            border-bottom-color: var(--green);
-        }
-
-        .terminal {
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-top: none;
-            padding: 32px 36px;
-            min-height: 560px;
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        .prompt {
-            display: flex;
-            align-items: baseline;
-            gap: 0;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .prompt-user {
-            color: var(--mauve);
-        }
-
-        .prompt-at {
-            color: var(--dim);
-        }
-
-        .prompt-host {
-            color: var(--blue);
-        }
-
-        .prompt-sep {
-            color: var(--dim);
-        }
-
-        .prompt-path {
-            color: var(--green);
-        }
-
-        .prompt-dollar {
-            color: var(--dim);
-            margin-left: 4px;
-            margin-right: 8px;
-        }
-
-        .prompt-cmd {
-            color: var(--yellow);
-        }
-
-        .output {
-            margin-bottom: 28px;
-        }
-
-        .comment {
-            color: var(--dim);
-            font-style: italic;
-            margin-bottom: 16px;
-        }
-
-        .comment::before {
-            content: '# ';
-        }
-
-        .big-name {
-            font-family: 'Fraunces', serif;
-            font-style: italic;
-            font-size: clamp(42px, 8vw, 72px);
-            font-weight: 300;
-            line-height: 1;
-            color: var(--text);
-            margin-bottom: 4px;
-            letter-spacing: -1px;
-        }
-
-        .big-name span {
-            color: var(--green);
-        }
-
-        .role-line {
-            font-size: 13px;
-            color: var(--blue);
-            margin-bottom: 20px;
-        }
-
-        .role-line::before {
-            content: '→ ';
-            color: var(--dim);
-        }
-
-        .bio {
-            color: #a6adc8;
-            max-width: 720px;
-            line-height: 1.85;
-            margin-bottom: 28px;
-            font-size: 13px;
-        }
-
-        .kv-list {
-            margin-bottom: 28px;
-        }
-
-        .kv {
-            display: flex;
-            gap: 0;
-            margin-bottom: 6px;
-            align-items: baseline;
-            flex-wrap: wrap;
-        }
-
-        .kv-key {
-            color: var(--mauve);
-            min-width: 120px;
-        }
-
-        .kv-eq {
-            color: var(--dim);
-            margin: 0 8px;
-        }
-
-        .kv-val {
-            color: var(--yellow);
-        }
-
-        .kv-val a {
-            color: var(--yellow);
-            text-decoration: none;
-            word-break: break-word;
-        }
-
-        .kv-val a:hover {
-            color: var(--green);
-            text-decoration: underline;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 8px;
-        }
-
-        .cmd-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            text-decoration: none;
-            border: 1px solid;
-            cursor: pointer;
-            transition: all 0.15s;
-            background: transparent;
-        }
-
-        .cmd-btn-primary {
-            border-color: var(--green);
-            color: var(--green);
-        }
-
-        .cmd-btn-primary:hover {
-            background: var(--green);
-            color: var(--bg);
-        }
-
-        .cmd-btn-secondary {
-            border-color: var(--border);
-            color: var(--dim);
-        }
-
-        .cmd-btn-secondary:hover {
-            border-color: var(--blue);
-            color: var(--blue);
-        }
-
-        .blink {
-            display: inline-block;
-            width: 8px;
-            height: 14px;
-            background: var(--green);
-            animation: blink 1s step-end infinite;
-            vertical-align: middle;
-            margin-left: 2px;
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        .exp-block {
-            margin-bottom: 32px;
-        }
-
-        .exp-title-line {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 4px;
-        }
-
-        .exp-role {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .exp-period {
-            font-size: 11px;
-            color: var(--dim);
-        }
-
-        .exp-company {
-            color: var(--teal);
-            font-size: 12px;
-            margin-bottom: 10px;
-        }
-
-        .exp-company::before {
-            content: '@ ';
-            color: var(--dim);
-        }
-
-        .exp-points {
-            list-style: none;
-            padding: 0;
-        }
-
-        .exp-points li {
-            color: #a6adc8;
-            font-size: 12px;
-            line-height: 1.75;
-            padding-left: 16px;
-            position: relative;
-            margin-bottom: 5px;
-        }
-
-        .exp-points li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--green);
-            font-size: 10px;
-            top: 2px;
-        }
-
-        .divider {
-            border: none;
-            border-top: 1px dashed var(--border);
-            margin: 24px 0;
-        }
-
-        .skill-block {
-            margin-bottom: 20px;
-        }
-
-        .skill-category {
-            color: var(--blue);
-            font-size: 11px;
-            margin-bottom: 8px;
-            letter-spacing: 0.05em;
-        }
-
-        .skill-category::before {
-            content: '[';
-            color: var(--dim);
-        }
-
-        .skill-category::after {
-            content: ']';
-            color: var(--dim);
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .stag {
-            padding: 3px 10px;
-            font-size: 11px;
-            border: 1px solid;
-            transition: all 0.12s;
-        }
-
-        .stag-java {
-            border-color: #f38ba820;
-            color: var(--red);
-        }
-
-        .stag-java:hover {
-            background: #f38ba820;
-        }
-
-        .stag-cloud {
-            border-color: #89b4fa20;
-            color: var(--blue);
-        }
-
-        .stag-cloud:hover {
-            background: #89b4fa20;
-        }
-
-        .stag-db {
-            border-color: #f9e2af20;
-            color: var(--yellow);
-        }
-
-        .stag-db:hover {
-            background: #f9e2af20;
-        }
-
-        .stag-devops {
-            border-color: #a6e3a120;
-            color: var(--green);
-        }
-
-        .stag-devops:hover {
-            background: #a6e3a120;
-        }
-
-        .stag-sec {
-            border-color: #cba6f720;
-            color: var(--mauve);
-        }
-
-        .stag-sec:hover {
-            background: #cba6f720;
-        }
-
-        .stag-tools {
-            border-color: #94e2d520;
-            color: var(--teal);
-        }
-
-        .stag-tools:hover {
-            background: #94e2d520;
-        }
-
-        .project-block {
-            border: 1px solid var(--border);
-            padding: 20px;
-            margin-bottom: 16px;
-            transition: border-color 0.2s;
-            position: relative;
-        }
-
-        .project-block:hover {
-            border-color: var(--teal);
-        }
-
-        .project-block::before {
-            content: attr(data-num);
-            position: absolute;
-            top: -1px;
-            right: 16px;
-            background: var(--bg);
-            padding: 0 6px;
-            font-size: 10px;
-            color: var(--dim);
-        }
-
-        .project-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--teal);
-            margin-bottom: 6px;
-        }
-
-        .project-desc {
-            color: #a6adc8;
-            font-size: 12px;
-            line-height: 1.75;
-            margin-bottom: 12px;
-        }
-
-        .project-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 14px;
-        }
-
-        .stack-chip {
-            font-size: 10px;
-            color: var(--peach);
-            border: 1px solid #fab38720;
-            padding: 2px 8px;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 12px;
-            font-size: 11px;
-            text-decoration: none;
-            border: 1px solid var(--border);
-            color: var(--dim);
-            transition: all 0.15s;
-        }
-
-        .project-link:hover {
-            border-color: var(--green);
-            color: var(--green);
-        }
-
-        .contact-line {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 12px;
-            flex-wrap: wrap;
-        }
-
-        .contact-line:last-child {
-            border-bottom: none;
-        }
-
-        .c-icon {
-            color: var(--green);
-            width: 20px;
-            text-align: center;
-        }
-
-        .c-label {
-            color: var(--dim);
-            width: 80px;
-        }
-
-        .c-val {
-            color: var(--yellow);
-            word-break: break-word;
-        }
-
-        .c-val a {
-            color: var(--yellow);
-            text-decoration: none;
-        }
-
-        .c-val a:hover {
-            color: var(--green);
-        }
-
-        .cert-line {
-            display: flex;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-            align-items: baseline;
-        }
-
-        .cert-line:last-child {
-            border-bottom: none;
-        }
-
-        .cert-badge {
-            font-size: 10px;
-            padding: 2px 8px;
-            border: 1px solid var(--green);
-            color: var(--green);
-            white-space: nowrap;
-        }
-
-        .cert-name {
-            color: var(--text);
-            font-size: 12px;
-        }
-
-        .cert-detail {
-            color: var(--dim);
-            font-size: 11px;
-            margin-top: 2px;
-        }
-
-        .statusbar {
-            background: var(--green);
-            color: var(--bg);
-            font-size: 11px;
-            padding: 4px 16px;
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            border-radius: 0 0 6px 6px;
-            font-weight: 600;
-            flex-wrap: wrap;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section.active>* {
-            animation: fadeIn 0.3s ease both;
-        }
-
-        .section.active>*:nth-child(2) {
-            animation-delay: 0.05s;
-        }
-
-        .section.active>*:nth-child(3) {
-            animation-delay: 0.1s;
-        }
-
-        .section.active>*:nth-child(4) {
-            animation-delay: 0.15s;
-        }
-
-        .section.active>*:nth-child(5) {
-            animation-delay: 0.2s;
-        }
-
-        @media (max-width: 700px) {
-            .terminal {
-                padding: 22px 18px;
-            }
-
-            .window {
-                margin: 0;
-                padding: 0 0 40px;
-            }
-
-            .titlebar {
-                border-radius: 0;
-            }
-
-            .kv-key {
-                min-width: 95px;
-            }
-
-            .statusbar {
-                font-size: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/script.js" defer></script>
 </head>
 
 <body>
 
     <div class="window">
         <div class="titlebar">
-            <div class="dots">
+            <div class="dots" aria-hidden="true">
                 <div class="dot dot-r"></div>
                 <div class="dot dot-y"></div>
                 <div class="dot dot-g"></div>
@@ -712,15 +25,16 @@
             <div class="title-text">ashish@portfolio: ~</div>
         </div>
 
-        <div class="tabs">
-            <button class="tab active" onclick="showSection('home', this)">~/home</button>
-            <button class="tab" onclick="showSection('experience', this)">~/experience</button>
-            <button class="tab" onclick="showSection('skills', this)">~/skills</button>
-            <button class="tab" onclick="showSection('projects', this)">~/projects</button>
-            <button class="tab" onclick="showSection('contact', this)">~/contact</button>
-        </div>
+        <noscript><p class="no-script-note">All sections are shown below. Enable JavaScript to use the tabs.</p></noscript>
+        <nav class="tabs" aria-label="Portfolio sections">
+            <button type="button" class="tab active" id="tab-home" data-section="home">~/home</button>
+            <button type="button" class="tab" id="tab-experience" data-section="experience">~/experience</button>
+            <button type="button" class="tab" id="tab-skills" data-section="skills">~/skills</button>
+            <button type="button" class="tab" id="tab-projects" data-section="projects">~/projects</button>
+            <button type="button" class="tab" id="tab-contact" data-section="contact">~/contact</button>
+        </nav>
 
-        <div class="terminal">
+        <main class="terminal">
 
             <!-- HOME -->
             <div class="section active" id="home">
@@ -732,20 +46,18 @@
                 </div>
 
                 <div class="output">
-                    <div class="big-name">Ashish<br><span>Kumar Singh</span></div>
+                    <h1 class="big-name">Ashish<br><span>Kumar Singh</span></h1>
                     <div class="role-line">Software Development Engineer · Backend Systems · Java / Spring Boot</div>
 
                     <p class="bio">
-                        Backend engineer focused on building reliable software for networked and operational systems.
-                        Currently working at Bharat Electronics Limited on ICNS, a mission-critical Network Management
-                        System used for monitoring, telemetry collection, configuration workflows, and operational
-                        control across distributed communication infrastructure.
+                        I’m a Software Development Engineer at Bharat Electronics Limited, building Java and
+                        Spring Boot backends for network management and distributed information-exchange systems.
+                        My work spans REST APIs, telemetry processing, Redis caching, Kafka event pipelines,
+                        and database performance.
                         <br><br>
-                        I work mainly with Java, Spring Boot, Hibernate/JPA, MySQL/PostgreSQL, and Linux-based
-                        deployment tooling. My recent work has included backend APIs, poller workflows for non-SNMP
-                        devices, performance optimization, RBAC, deployment automation, and production reliability
-                        improvements. I’m especially interested in backend engineering that sits close to systems,
-                        networking, concurrency, and real-world operational software.
+                        I also work with AWS, Kubernetes, Terraform, and GitOps to build reliable delivery and
+                        scaling workflows. Outside work, I build self-hosted AI infrastructure and real-time
+                        applications, bringing the same focus on concurrency, testing, and systems engineering.
                     </p>
                 </div>
 
@@ -765,40 +77,29 @@
                         <div class="kv">
                             <span class="kv-key">focus</span>
                             <span class="kv-eq">=</span>
-                            <span class="kv-val">Backend Systems · Network Management Software · Telemetry & Operational
-                                Platforms</span>
+                            <span class="kv-val">Backend Engineering · Distributed Systems · Cloud &amp; Platform Engineering</span>
                         </div>
                         <div class="kv">
                             <span class="kv-key">stack</span>
                             <span class="kv-eq">=</span>
-                            <span class="kv-val">Java · Spring Boot · Hibernate/JPA · MySQL · PostgreSQL · Docker/Podman
-                                · Linux</span>
+                            <span class="kv-val">Java · Spring Boot · Kafka · Redis · PostgreSQL · AWS · Kubernetes</span>
                         </div>
                         <div class="kv">
                             <span class="kv-key">github</span>
                             <span class="kv-eq">=</span>
                             <span class="kv-val"><a href="https://github.com/616b73"
-                                    target="_blank">github.com/616b73</a></span>
+                                    target="_blank" rel="noopener noreferrer">github.com/616b73</a></span>
                         </div>
                         <div class="kv">
                             <span class="kv-key">linkedin</span>
                             <span class="kv-eq">=</span>
                             <span class="kv-val"><a href="https://www.linkedin.com/in/ashishkumarsingh3103/"
-                                    target="_blank">linkedin.com/in/ashishkumarsingh3103</a></span>
+                                    target="_blank" rel="noopener noreferrer">linkedin.com/in/ashishkumarsingh3103</a></span>
                         </div>
                     </div>
                 </div>
 
-                <!-- <div class="actions">
-                    <a href="mailto:ashishkumarsingh3103@gmail.com" class="cmd-btn cmd-btn-primary">✉ get in touch</a>
-                    <a href="AshishKumarSingh_Resume.pdf" download="AshishKumarSingh_Resume.pdf"
-                        class="cmd-btn cmd-btn-secondary">↓ download resume</a>
-                    <a href="https://github.com/616b73" target="_blank" class="cmd-btn cmd-btn-secondary">⇗ github</a>
-                    <a href="https://www.linkedin.com/in/ashishkumarsingh3103/" target="_blank"
-                        class="cmd-btn cmd-btn-secondary">⇗ linkedin</a>
-                </div> -->
-
-                <div style="margin-top:32px; color: var(--dim); font-size: 12px;">
+                <div class="terminal-cursor" aria-hidden="true">
                     <span class="prompt-dollar">$</span> <span class="blink"></span>
                 </div>
             </div>
@@ -818,22 +119,34 @@
                         <span class="exp-period">Aug 2025 – Present</span>
                     </div>
                     <div class="exp-company">Bharat Electronics Limited · New Delhi, India</div>
+                    <h2 class="workstream-title">Umbrella NMS · Backend &amp; performance</h2>
                     <ul class="exp-points">
-                        <li>Design and develop backend services for ICNS, a mission-critical Network Management System
-                            supporting monitoring, telemetry ingestion, configuration workflows, and operational control
-                            across distributed communication infrastructure.</li>
-                        <li>Built and enhanced backend modules for device monitoring, alarm handling, reporting, RBAC,
-                            schedulers, audit logging, and operational workflows, along with REST APIs for real-time
-                            monitoring and configuration management.</li>
-                        <li>Implemented end-to-end TCP/REST-based poller workflows for non-SNMP devices and supported
-                            monitoring pages used for telemetry visualization, fault handling, traffic monitoring, and
-                            remote-site operational visibility.</li>
-                        <li>Improved backend performance by optimizing Hibernate/JPA mappings, SQL queries, and
-                            data-access workflows, reducing latency for high-volume telemetry and operational data
-                            paths.</li>
-                        <li>Contributed to platform deployment and reliability using Podman, systemd, Quadlet, Spring
-                            Security RBAC, HA failover support, and production defect resolution across live deployment
-                            environments.</li>
+                        <li>Owned and delivered <strong>10+ backend modules</strong> and <strong>20+ REST APIs</strong>
+                            for monitoring, configuration, alarms, reporting, RBAC, audit workflows, and concurrent
+                            multi-protocol polling. Supported <strong>211 device types</strong>,
+                            <strong>2,200+ operational interfaces</strong>, and <strong>5M+ daily telemetry records</strong>.</li>
+                        <li>Implemented Redis cache-aside access, explicit invalidation, and polling-aware TTLs for
+                            current-device telemetry. Achieved an <strong>85% cache hit rate</strong>, reduced database
+                            load from <strong>850 to 180 QPS</strong>, and cut <strong>P95 API latency from 240 ms to 52 ms</strong>.</li>
+                        <li>Optimized Hibernate/JPA and SQL across <strong>18+ high-volume workflows</strong>, eliminating
+                            N+1 query paths and reducing average query latency by <strong>~32%</strong>. A representative
+                            query improved from <strong>125 ms to 82 ms</strong> through indexing, batching,
+                            fetch-strategy tuning, and <code>EXPLAIN ANALYZE</code>.</li>
+                    </ul>
+                    <h2 class="workstream-title">ORION · Event-driven services &amp; cloud delivery</h2>
+                    <p class="workstream-context">Implemented a cloud-enabled distributed information-exchange platform.</p>
+                    <ul class="exp-points">
+                        <li>Built a Spring Kafka report-processing pipeline with per-report ordering, independent
+                            consumer groups, transactional outbox, retries/dead-letter handling, and idempotent
+                            at-least-once processing. <strong>Recovered an 80K-message backlog in under 5 minutes.</strong></li>
+                        <li>Containerized Spring Boot services and deployed them on Amazon EKS through ECR and Helm.
+                            Provisioned AWS infrastructure with Terraform across RDS PostgreSQL, MSK, ElastiCache,
+                            S3, IAM, VPC, and ALB. HPA/KEDA autoscaling and Karpenter capacity management supported
+                            <strong>4× peak workload</strong> with <strong>~35% less idle compute</strong>.</li>
+                        <li>Built CI/CD and GitOps delivery with <strong>GitHub Actions, GitHub OIDC, and Argo CD</strong>:
+                            automated unit/integration tests, security scans, immutable SHA-tagged ECR images,
+                            approval-gated environment promotion, and rollback to known-good images.
+                            Used short-lived AWS credentials through OIDC.</li>
                     </ul>
                 </div>
 
@@ -847,16 +160,14 @@
                     <div class="exp-company">Defence Research and Development Organisation (DRDO) · New Delhi, India
                     </div>
                     <ul class="exp-points">
-                        <li>Engineered an eBPF-based TCP packet filtering system at the NIC level to improve packet
-                            filtering efficiency and strengthen low-level traffic handling.</li>
-                        <li>Optimized kernel-level packet processing using embedded C, libbpf, and Linux APIs, improving
-                            throughput and reducing network latency across tested traffic patterns.</li>
-                        <li>Benchmarked the system under multiple traffic scenarios to validate performance,
-                            scalability, and stability under load.</li>
+                        <li>Engineered an eBPF-based TCP packet filtering system at the NIC level using C,
+                            libbpf, and Linux APIs, improving filtering efficiency by <strong>~37%</strong>.</li>
+                        <li>Optimized kernel-level packet processing and benchmarked multiple traffic patterns,
+                            reducing network latency by <strong>25%</strong> while improving throughput and stability under load.</li>
                     </ul>
                 </div>
 
-                <div style="color: var(--dim); font-size: 12px; margin-top: 16px;">
+                <div class="terminal-cursor" aria-hidden="true">
                     <span class="prompt-dollar">$</span> <span class="blink"></span>
                 </div>
             </div>
@@ -871,69 +182,146 @@
                 </div>
 
                 <div class="skill-block">
-                    <div class="skill-category">languages & backend</div>
+                    <h2 class="skill-category">languages</h2>
                     <div class="skill-tags">
                         <span class="stag stag-java">Java</span>
+                        <span class="stag stag-java">C++</span>
+                        <span class="stag stag-java">C</span>
+                        <span class="stag stag-java">Python</span>
+                        <span class="stag stag-java">SQL</span>
+                        <span class="stag stag-java">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="skill-block">
+                    <h2 class="skill-category">java &amp; backend</h2>
+                    <div class="skill-tags">
                         <span class="stag stag-java">Spring Boot</span>
-                        <span class="stag stag-java">Spring Framework</span>
+                        <span class="stag stag-java">Spring Framework / MVC</span>
+                        <span class="stag stag-java">Spring Security</span>
                         <span class="stag stag-java">Hibernate / JPA</span>
                         <span class="stag stag-java">REST APIs</span>
                         <span class="stag stag-java">WebSockets</span>
-                        <span class="stag stag-java">Spring Security</span>
+                        <span class="stag stag-java">SSE</span>
                         <span class="stag stag-java">Maven</span>
                     </div>
                 </div>
 
                 <div class="skill-block">
-                    <div class="skill-category">databases & persistence</div>
+                    <h2 class="skill-category">messaging &amp; distributed systems</h2>
                     <div class="skill-tags">
-                        <span class="stag stag-db">MySQL</span>
+                        <span class="stag stag-sec">Apache Kafka</span>
+                        <span class="stag stag-sec">Spring Kafka</span>
+                        <span class="stag stag-sec">Microservices</span>
+                        <span class="stag stag-sec">Event-Driven Architecture</span>
+                        <span class="stag stag-sec">Transactional Outbox</span>
+                        <span class="stag stag-sec">Idempotency</span>
+                        <span class="stag stag-sec">Retries / Dead-Letter Topics</span>
+                    </div>
+                </div>
+
+                <div class="skill-block">
+                    <h2 class="skill-category">databases &amp; caching</h2>
+                    <div class="skill-tags">
                         <span class="stag stag-db">PostgreSQL</span>
-                        <span class="stag stag-db">SQL</span>
+                        <span class="stag stag-db">MySQL</span>
+                        <span class="stag stag-db">Redis</span>
+                        <span class="stag stag-db">Cache-Aside / TTLs</span>
+                        <span class="stag stag-db">SQL Optimization</span>
+                        <span class="stag stag-db">EXPLAIN ANALYZE</span>
+                        <span class="stag stag-db">HikariCP</span>
+                        <span class="stag stag-db">Transactions / Locking</span>
                         <span class="stag stag-db">Spring Data JDBC</span>
                         <span class="stag stag-db">Flyway</span>
                     </div>
                 </div>
 
                 <div class="skill-block">
-                    <div class="skill-category">systems & networking</div>
+                    <h2 class="skill-category">aws</h2>
                     <div class="skill-tags">
-                        <span class="stag stag-cloud">Linux</span>
-                        <span class="stag stag-cloud">TCP/IP</span>
-                        <span class="stag stag-cloud">eBPF</span>
-                        <span class="stag stag-cloud">Telemetry Systems</span>
-                        <span class="stag stag-cloud">Network Management Software</span>
-                        <span class="stag stag-cloud">Concurrency</span>
+                        <span class="stag stag-cloud">EKS</span>
+                        <span class="stag stag-cloud">ECR</span>
+                        <span class="stag stag-cloud">RDS</span>
+                        <span class="stag stag-cloud">S3</span>
+                        <span class="stag stag-cloud">MSK</span>
+                        <span class="stag stag-cloud">ElastiCache</span>
+                        <span class="stag stag-cloud">IAM</span>
+                        <span class="stag stag-cloud">VPC</span>
+                        <span class="stag stag-cloud">ALB</span>
+                        <span class="stag stag-cloud">Secrets Manager</span>
                     </div>
                 </div>
 
                 <div class="skill-block">
-                    <div class="skill-category">deployment & tooling</div>
+                    <h2 class="skill-category">containers &amp; delivery</h2>
                     <div class="skill-tags">
                         <span class="stag stag-devops">Docker</span>
+                        <span class="stag stag-devops">Kubernetes</span>
+                        <span class="stag stag-devops">Terraform</span>
+                        <span class="stag stag-devops">Helm</span>
+                        <span class="stag stag-devops">GitHub Actions</span>
+                        <span class="stag stag-devops">GitHub OIDC</span>
+                        <span class="stag stag-devops">Argo CD / GitOps</span>
+                        <span class="stag stag-devops">HPA</span>
+                        <span class="stag stag-devops">KEDA</span>
+                        <span class="stag stag-devops">Karpenter</span>
                         <span class="stag stag-devops">Podman</span>
-                        <span class="stag stag-devops">systemd</span>
                         <span class="stag stag-devops">Quadlet</span>
-                        <span class="stag stag-devops">Git</span>
-                        <span class="stag stag-devops">GitHub</span>
-                        <span class="stag stag-devops">Postman</span>
+                        <span class="stag stag-devops">systemd</span>
                     </div>
                 </div>
 
                 <div class="skill-block">
-                    <div class="skill-category">frontend & supporting stack</div>
+                    <h2 class="skill-category">testing &amp; security</h2>
                     <div class="skill-tags">
-                        <span class="stag stag-tools">React</span>
-                        <span class="stag stag-tools">JavaScript</span>
-                        <span class="stag stag-tools">HTML</span>
-                        <span class="stag stag-tools">CSS</span>
-                        <span class="stag stag-tools">Flask</span>
-                        <span class="stag stag-tools">Python</span>
-                        <span class="stag stag-tools">C / C++</span>
+                        <span class="stag stag-sec">JUnit 5</span>
+                        <span class="stag stag-sec">Mockito</span>
+                        <span class="stag stag-sec">MockMvc</span>
+                        <span class="stag stag-sec">Testcontainers</span>
+                        <span class="stag stag-sec">JaCoCo</span>
+                        <span class="stag stag-sec">OIDC / JWT</span>
+                        <span class="stag stag-sec">RBAC</span>
+                        <span class="stag stag-sec">TLS / mTLS</span>
+                        <span class="stag stag-sec">X.509</span>
+                        <span class="stag stag-sec">Least-Privilege IAM</span>
                     </div>
                 </div>
 
-                <div style="color: var(--dim); font-size: 12px; margin-top: 16px;">
+                <div class="skill-block">
+                    <h2 class="skill-category">systems &amp; networking</h2>
+                    <div class="skill-tags">
+                        <span class="stag stag-cloud">Linux / RHEL</span>
+                        <span class="stag stag-cloud">C / libbpf / eBPF</span>
+                        <span class="stag stag-cloud">TCP/IP</span>
+                        <span class="stag stag-cloud">SNMP</span>
+                        <span class="stag stag-cloud">Concurrency</span>
+                        <span class="stag stag-cloud">Pacemaker / Corosync</span>
+                        <span class="stag stag-cloud">Shell Automation</span>
+                    </div>
+                </div>
+
+                <div class="skill-block">
+                    <h2 class="skill-category">frontend &amp; supporting tools</h2>
+                    <div class="skill-tags">
+                        <span class="stag stag-tools">Thymeleaf</span>
+                        <span class="stag stag-tools">JavaScript / jQuery</span>
+                        <span class="stag stag-tools">Bootstrap</span>
+                        <span class="stag stag-tools">D3.js</span>
+                        <span class="stag stag-tools">OpenLayers</span>
+                        <span class="stag stag-tools">Chart.js</span>
+                        <span class="stag stag-tools">React (projects)</span>
+                        <span class="stag stag-tools">TypeScript (projects)</span>
+                        <span class="stag stag-tools">WebRTC</span>
+                        <span class="stag stag-tools">HTML / CSS</span>
+                        <span class="stag stag-tools">Git</span>
+                        <span class="stag stag-tools">Postman</span>
+                        <span class="stag stag-tools">Flask</span>
+                        <span class="stag stag-tools">Nginx</span>
+                        <span class="stag stag-tools">Ollama / llama.cpp</span>
+                    </div>
+                </div>
+
+                <div class="terminal-cursor" aria-hidden="true">
                     <span class="prompt-dollar">$</span> <span class="blink"></span>
                 </div>
             </div>
@@ -947,75 +335,58 @@
                     <span class="prompt-cmd">git log --oneline --all</span>
                 </div>
 
-                <div class="project-block" data-num="project/01 · flagship">
-                    <div class="project-name">RoleMate</div>
-
+                <article class="project-block" data-num="project/01">
+                    <h2 class="project-name">AI Inference Gateway</h2>
                     <p class="project-desc">
-                        RoleMate is a real-time interview practice platform built to help candidates find practice
-                        partners instantly instead of relying on personal networks, paid mock interviews, or slow
-                        scheduling. Users choose the role they are preparing for, join a queue, and get matched with
-                        another candidate for mock interviews, concept discussions, system design practice, or general
-                        preparation conversations.
-                        <br><br>
-                        I designed the project as a real-time matchmaking system with a Spring Boot backend,
-                        WebSocket-based session flow, peer-to-peer video calling via WebRTC signaling, asynchronous
-                        PostgreSQL persistence for session metadata, and a React frontend packaged with Docker for
-                        full-stack deployment.
+                        A self-hosted inference gateway with a unified Spring Boot REST API over Ollama and
+                        llama.cpp model backends. Built for multi-model inference, with Dockerized deployment
+                        and Nginx-based routing.
                     </p>
-
-                    <ul class="exp-points" style="margin-bottom: 14px;">
-                        <li>Built the backend matchmaking workflow for real-time partner discovery, starting from a
-                            role-based queueing system and later extending it to preference-aware matching using role,
-                            topic, and experience-level scoring.</li>
-                        <li>Designed a WebSocket event-driven session lifecycle covering queue join/leave, match
-                            creation, live chat, partner switching, disconnect cleanup, and session state transitions
-                            between waiting, active chat, and post-session feedback.</li>
-                        <li>Implemented WebRTC signaling support over WebSockets to enable browser-based audio/video
-                            interview sessions, including SDP offer/answer relay and ICE candidate exchange while
-                            keeping the backend as a lightweight signaling server rather than a media server.</li>
-                        <li>Refactored the backend from an initial monolithic matchmaking service into a cleaner layered
-                            design with dedicated services for session management, signaling, and persistence, plus
-                            per-role concurrency control using <code>ReentrantLock</code> for safer parallel matching.
-                        </li>
-                        <li>Added asynchronous PostgreSQL persistence for session metadata and feedback using Spring
-                            Data JDBC and Flyway so that database writes do not block the real-time matchmaking and chat
-                            flow.</li>
-                        <li>Containerized the full stack with Docker Compose, Nginx, Spring Boot, and PostgreSQL,
-                            enabling the entire application to run through a single multi-container setup with
-                            reverse-proxied API and WebSocket traffic.</li>
-                    </ul>
-
-                    <div class="comment">current capabilities</div>
-                    <p class="project-desc" style="margin-bottom: 14px;">
-                        Supports role-based and preference-aware partner matching, live text chat, WebRTC-based video
-                        sessions, next-partner flow, queue leave/rejoin, session timer, feedback capture, topic and
-                        experience-level matching preferences, and persistent session analytics metadata. The project is
-                        backed by a growing automated test suite and an iterative roadmap toward production-grade
-                        deployment and stronger real-world reliability.
-                    </p>
-
-                    <div class="comment">tech stack</div>
                     <div class="project-stack">
                         <span class="stack-chip">Java</span>
                         <span class="stack-chip">Spring Boot</span>
-                        <span class="stack-chip">Spring WebSocket</span>
-                        <span class="stack-chip">WebRTC Signaling</span>
-                        <span class="stack-chip">PostgreSQL</span>
-                        <span class="stack-chip">Spring Data JDBC</span>
-                        <span class="stack-chip">Flyway</span>
-                        <span class="stack-chip">React</span>
-                        <span class="stack-chip">Docker Compose</span>
+                        <span class="stack-chip">REST APIs</span>
+                        <span class="stack-chip">Docker</span>
                         <span class="stack-chip">Nginx</span>
+                        <span class="stack-chip">Ollama</span>
+                        <span class="stack-chip">llama.cpp</span>
+                    </div>
+                    <div class="project-links">
+                        <a class="project-link" href="https://github.com/616b73/AI-Inference-Gateway" target="_blank" rel="noopener noreferrer">⇗ GitHub Repository</a>
+                    </div>
+                </article>
+
+                <article class="project-block" data-num="project/02">
+                    <h2 class="project-name">RoleMate</h2>
+                    <p class="project-desc">
+                        A real-time mock-interview platform that matches practice partners by role, topic,
+                        and experience level. Combines a Spring Boot backend and React frontend with
+                        WebSocket chat and session events, WebRTC video signaling, and PostgreSQL persistence.
+                    </p>
+                    <ul class="exp-points project-points">
+                        <li>Built scored matchmaking with concurrent queues and per-role concurrency control,
+                            including queue join/leave, partner switching, and disconnect cleanup.</li>
+                        <li>Separated session management, signaling, and persistence; added asynchronous database
+                            writes using Spring Data JDBC and Flyway to keep persistence off the real-time path.</li>
+                        <li>Containerized the stack with Docker Compose and Nginx, and added <strong>55+ automated tests</strong>
+                            for backend reliability.</li>
+                    </ul>
+                    <div class="project-stack">
+                        <span class="stack-chip">Java / Spring Boot</span>
+                        <span class="stack-chip">WebSocket</span>
+                        <span class="stack-chip">WebRTC</span>
+                        <span class="stack-chip">PostgreSQL</span>
+                        <span class="stack-chip">Spring Data JDBC / Flyway</span>
+                        <span class="stack-chip">React</span>
+                        <span class="stack-chip">Docker Compose / Nginx</span>
                         <span class="stack-chip">JUnit / Mockito</span>
                     </div>
-
                     <div class="project-links">
-                        <a class="project-link" href="https://github.com/616b73/RoleMate" target="_blank">⇗ GitHub
-                            Repository</a>
+                        <a class="project-link" href="https://github.com/616b73/RoleMate" target="_blank" rel="noopener noreferrer">⇗ GitHub Repository</a>
                     </div>
-                </div>
+                </article>
 
-                <div style="color: var(--dim); font-size: 12px; margin-top: 16px;">
+                <div class="terminal-cursor" aria-hidden="true">
                     <span class="prompt-dollar">$</span> <span class="blink"></span>
                 </div>
             </div>
@@ -1029,7 +400,7 @@
                     <span class="prompt-cmd">cat contact.json</span>
                 </div>
 
-                <div class="output" style="margin-bottom:32px;">
+                <div class="output contact-details">
                     <div class="contact-line">
                         <span class="c-icon">✉</span>
                         <span class="c-label">email</span>
@@ -1041,14 +412,14 @@
                         <span class="c-icon">⇗</span>
                         <span class="c-label">github</span>
                         <span class="c-val"><a href="https://github.com/616b73"
-                                target="_blank">github.com/616b73</a></span>
+                                target="_blank" rel="noopener noreferrer">github.com/616b73</a></span>
                     </div>
 
                     <div class="contact-line">
                         <span class="c-icon">⇗</span>
                         <span class="c-label">linkedin</span>
                         <span class="c-val"><a href="https://www.linkedin.com/in/ashishkumarsingh3103/"
-                                target="_blank">linkedin.com/in/ashishkumarsingh3103</a></span>
+                                target="_blank" rel="noopener noreferrer">linkedin.com/in/ashishkumarsingh3103</a></span>
                     </div>
 
                     <div class="contact-line">
@@ -1068,43 +439,24 @@
                     </div>
                 </div>
 
-                <div style="margin-top: 28px;">
+                <div class="resume-action">
                     <a href="AshishKumarSingh_Resume.pdf" download="AshishKumarSingh_Resume.pdf"
                         class="cmd-btn cmd-btn-primary">↓ download resume</a>
                 </div>
 
-                <div style="color: var(--dim); font-size: 12px; margin-top: 24px;">
+                <div class="terminal-cursor" aria-hidden="true">
                     <span class="prompt-dollar">$</span> <span class="blink"></span>
                 </div>
             </div>
-        </div>
+        </main>
 
         <div class="statusbar">
             <span id="status-mode">NORMAL</span>
             <span id="status-file">home</span>
-            <span>Java · Spring Boot · Backend Systems · NMS</span>
+            <span>Java · Spring Boot · Kafka · AWS</span>
         </div>
     </div>
 
-    <script>
-        function showSection(id, tab) {
-            document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-
-            document.getElementById(id).classList.add('active');
-            tab.classList.add('active');
-            document.getElementById('status-file').textContent = id;
-        }
-
-        document.addEventListener('keydown', e => {
-            const tabs = document.querySelectorAll('.tab');
-            const active = document.querySelector('.tab.active');
-            const idx = [...tabs].indexOf(active);
-
-            if (e.key === 'ArrowRight' && idx < tabs.length - 1) tabs[idx + 1].click();
-            if (e.key === 'ArrowLeft' && idx > 0) tabs[idx - 1].click();
-        });
-    </script>
 </body>
 
 </html>
